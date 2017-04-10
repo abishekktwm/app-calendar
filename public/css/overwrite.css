@@ -1,3 +1,11 @@
+.rbc-show-more {
+  font-size: 12px !important;
+}
+
+.rbc-day-slot .rbc-event {
+  box-shadow: -4px 0px 0 0 #fff;
+}
+
 .rbc-calendar {
   font-family: 'AvenirMedium', sans-serif;
   border-radius: 3px;
