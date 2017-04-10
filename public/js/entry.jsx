@@ -5,6 +5,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import '../css/overwrite.css';
+
 BigCalendar.momentLocalizer(moment)
 
 class Hello extends React.Component {
