@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="all" href="https://s3.amazonaws.com/pipestyle/2.9.5/assets/stylesheets/pipestyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  </head>
+  <body>
+    <div style="height:800px;padding: 10px" id="calendar"></div>
+    <script src="https://cdn.rawgit.com/krakenjs/xcomponent/master/dist/xcomponent.js"></script>
+
+    <script>
+      xcomponent.create({
+        tag: 'calendar-modal',
+        url: 'http://localhost:4000/calendar.html'
+      });
+    </script>
+
+    <script src="/js/bundle.js"></script>
+  </body>
+</html>
