@@ -8,13 +8,20 @@ window.xprops.initCall({
     return [
       {
         icon: './images/icon.png',
-        text: "Calendar 2",
+        text: "Calendar",
         callback: function(p){
           return p.modal({
             url: './calendar.html'
           });
         }
-      }
+      },
+    {
+        icon: './images/icon.png',
+        text: "Google",
+        url: "http://google.com.br",
+        target: 'blank',
+      },
+
     ];
   }
 });
