@@ -1,20 +1,24 @@
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
 
+require('moment/locale/fr');
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../css/overwrite.css';
 
-BigCalendar.momentLocalizer(moment)
+BigCalendar.setLocalizer(
+  BigCalendar.momentLocalizer(moment)
+);
 
 class Hello extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      events: []
+      events: [],
     }
   }
 
@@ -46,8 +50,12 @@ class Hello extends React.Component {
       selectable
       onSelectEvent={event => this.openCard(event.id)}
       events={this.state.events}
+      culture={this.props.locale}
     />
   }
 }
 
-ReactDOM.render(<Hello/>, document.getElementById('calendar'));
+window.xprops.pipefyClient.locale().then(locale => {
+  ReactDOM.render(<Hello locale={locale}/>, document.getElementById('calendar'));
+});
+
