@@ -10,7 +10,7 @@ var app = express();
 app.use(compression());
 
 // your manifest must have appropriate CORS headers, you could also use '*'
-app.use(cors({ origin: 'https://localhost:3000' }));
+app.use(cors({ origin: '*' }));
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));

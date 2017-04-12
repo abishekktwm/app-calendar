@@ -12,8 +12,8 @@ window.xprops.initCall({
         callback: function(p){
           return p.modal({
             url: './calendar.html',
-            width: '1200px',
-            height: '1000px'
+            width: '100%',
+            height: '100%'
           });
         }
       },
