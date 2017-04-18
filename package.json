@@ -4,6 +4,7 @@
   "description": "Pipefy calendar app",
   "main": "server.js",
   "dependencies": {
+    "babel-loader": "^6.4.1",
     "compression": "1.6.2",
     "cors": "^2.8.1",
     "express": "^4.15.2",
