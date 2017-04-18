@@ -1,14 +1,14 @@
 xcomponent.create({
   tag: 'calendar',
-  url: 'http://localhost:4000'
+  url: window.location.href
 });
 
 window.xprops.initCall({
   'pipe-buttons': function(t, board) {
     return [
       {
-        icon: './images/icon.png',
-        text: "Calendar",
+        icon: 'pp-ico-calendar',
+        text: 'Calendar',
         callback: function(p){
           return p.modal({
             url: './calendar.html',
@@ -16,13 +16,7 @@ window.xprops.initCall({
             height: '100%'
           });
         }
-      },
-      {
-        icon: './images/icon.png',
-        text: "Google",
-        url: "http://google.com.br",
-        target: 'blank',
-      },
+      }
     ];
   }
 });

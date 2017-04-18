@@ -8,12 +8,12 @@
   </head>
   <body>
     <div style="height:100%" id="calendar"></div>
-    <script src="https://cdn.rawgit.com/krakenjs/xcomponent/master/dist/xcomponent.js"></script>
+    <script src="/js/xcomponent.js"></script>
 
     <script>
       xcomponent.create({
         tag: 'calendar-modal',
-        url: 'http://localhost:4000/calendar.html'
+        url: window.location.href,
       });
     </script>
 
