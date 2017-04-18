@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "A sample Trello Power-Up that can be used as a starting point for your own awesome Power-Up.",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
   "dependencies": {
     "compression": "1.6.2",
     "cors": "^2.8.1",
@@ -23,6 +20,12 @@
     "hyperdev",
     "express"
   ],
+  "scripts": {
+    "start": "node server.js",
+    "compile": "webpack --progress --colors --watch",
+    "heroku-postbuild": "npm run compile"
+ },
+
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^0.28.0",
