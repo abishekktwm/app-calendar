@@ -5,6 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "compression": "1.6.2",
     "cors": "^2.8.1",
     "express": "^4.15.2",
