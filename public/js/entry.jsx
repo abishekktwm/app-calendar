@@ -9,11 +9,9 @@ import ReactDOM from 'react-dom'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import '../css/overwrite.css';
 
-BigCalendar.setLocalizer(
-  BigCalendar.momentLocalizer(moment)
-);
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 
-class Hello extends React.Component {
+class Calendar extends React.Component {
   constructor(props) {
     super(props)
 
@@ -51,11 +49,13 @@ class Hello extends React.Component {
       onSelectEvent={event => this.openCard(event.id)}
       events={this.state.events}
       culture={this.props.locale}
+      components={{
+      }}
     />
   }
 }
 
 window.xprops.pipefyClient.locale().then(locale => {
-  ReactDOM.render(<Hello locale={locale}/>, document.getElementById('calendar'));
+  ReactDOM.render(<Calendar locale={locale}/>, document.getElementById('calendar'));
 });
 

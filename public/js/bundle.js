@@ -30663,13 +30663,13 @@ __webpack_require__(98);
 
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
 
-var Hello = function (_React$Component) {
-  _inherits(Hello, _React$Component);
+var Calendar = function (_React$Component) {
+  _inherits(Calendar, _React$Component);
 
-  function Hello(props) {
-    _classCallCheck(this, Hello);
+  function Calendar(props) {
+    _classCallCheck(this, Calendar);
 
-    var _this = _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
 
     _this.state = {
       events: []
@@ -30677,7 +30677,7 @@ var Hello = function (_React$Component) {
     return _this;
   }
 
-  _createClass(Hello, [{
+  _createClass(Calendar, [{
     key: 'openCard',
     value: function openCard(id) {
       window.xprops.pipefyClient.openCard(id);
@@ -30714,16 +30714,17 @@ var Hello = function (_React$Component) {
           return _this3.openCard(event.id);
         },
         events: this.state.events,
-        culture: this.props.locale
+        culture: this.props.locale,
+        components: {}
       });
     }
   }]);
 
-  return Hello;
+  return Calendar;
 }(_react2.default.Component);
 
 window.xprops.pipefyClient.locale().then(function (locale) {
-  _reactDom2.default.render(_react2.default.createElement(Hello, { locale: locale }), document.getElementById('calendar'));
+  _reactDom2.default.render(_react2.default.createElement(Calendar, { locale: locale }), document.getElementById('calendar'));
 });
 
 /***/ }),
