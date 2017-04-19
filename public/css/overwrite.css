@@ -41,7 +41,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin: 0 10px;
 }
 
 .rbc-off-range a{
@@ -141,6 +140,11 @@
 
 .rbc-btn-group button {
   background: transparent;
+  padding: 10px 24px;
+}
+
+.rbc-btn-group button:focus {
+  outline: none !important;
 }
 
 .rbc-event {
