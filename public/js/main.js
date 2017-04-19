@@ -1,1 +1,1 @@
-import Calendar from './entry.jsx';
+import Calendar from './calendar.jsx';

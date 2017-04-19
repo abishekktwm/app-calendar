@@ -606,7 +606,6 @@ button.rbc-input::-moz-focus-inner {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin: 0 10px;
 }
 
 .rbc-off-range a{
@@ -706,6 +705,11 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-btn-group button {
   background: transparent;
+  padding: 10px 24px;
+}
+
+.rbc-btn-group button:focus {
+  outline: none !important;
 }
 
 .rbc-event {
