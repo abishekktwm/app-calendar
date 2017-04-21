@@ -30678,11 +30678,27 @@ var navigate = {
 
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
 
+var openCard = function openCard(id) {
+  window.xprops.pipefyClient.openCard(id);
+};
+
+function EventAgenda(_ref) {
+  var event = _ref.event;
+
+  return _react2.default.createElement(
+    'a',
+    { href: '#', onClick: function onClick(e) {
+        e.preventDefault();openCard(event.id);
+      } },
+    event.title
+  );
+}
+
 var CustomToolbar = function (_React$Component) {
   _inherits(CustomToolbar, _React$Component);
 
   function CustomToolbar() {
-    var _ref;
+    var _ref2;
 
     var _temp, _this, _ret;
 
@@ -30692,7 +30708,7 @@ var CustomToolbar = function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CustomToolbar.__proto__ || Object.getPrototypeOf(CustomToolbar)).call.apply(_ref, [this].concat(args))), _this), _this.navigate = function (action) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = CustomToolbar.__proto__ || Object.getPrototypeOf(CustomToolbar)).call.apply(_ref2, [this].concat(args))), _this), _this.navigate = function (action) {
       _this.props.onNavigate(action);
     }, _this.view = function (view) {
       _this.props.onViewChange(view);
@@ -30834,7 +30850,10 @@ var Calendar = function (_React$Component2) {
         events: this.state.events,
         culture: this.props.locale,
         components: {
-          toolbar: CustomToolbar
+          toolbar: CustomToolbar,
+          agenda: {
+            event: EventAgenda
+          }
         }
       });
     }

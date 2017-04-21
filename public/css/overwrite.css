@@ -223,7 +223,9 @@
   border-bottom: 1px solid rgba(0, 129, 255, .3);
 }
 
-.rbc-agenda-event-cell {
+.rbc-agenda-event-cell a {
+  font: 14px 'AvenirDemi';
+  color: #013d77;
   text-decoration: underline;
   border-top: 0 !important;
   border-bottom: 1px solid rgba(0, 129, 255, .1) !important;

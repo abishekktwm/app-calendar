@@ -22,6 +22,18 @@ const navigate = {
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 
+const openCard = (id) => {
+  window.xprops.pipefyClient.openCard(id)
+}
+
+function EventAgenda({ event }) {
+  return (
+    <a href="#" onClick={e => {e.preventDefault(); openCard(event.id)}}>
+      {event.title}
+    </a>
+  )
+}
+
 class CustomToolbar extends React.Component {
   render() {
     let { messages, label } = this.props;
@@ -134,7 +146,10 @@ class Calendar extends React.Component {
       events={this.state.events}
       culture={this.props.locale}
       components={{
-        toolbar: CustomToolbar
+        toolbar: CustomToolbar,
+        agenda: {
+          event: EventAgenda
+        }
       }}
     />
   }
