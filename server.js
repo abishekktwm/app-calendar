@@ -1,5 +1,7 @@
 // server.js
 // where your node app starts
+//
+require ('newrelic');
 
 var compression = require('compression');
 var cors = require('cors');
