@@ -659,9 +659,21 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-toolbar .rbc-toolbar-label {
+  width: 20%;
   padding: 0 10px;
   color: #023d78;
   font: 18px 'AvenirDemi', sans-serif;
+  text-align: left;
+}
+
+.rbc-toolbar .today{
+  margin: 0 34px;
+  font: 16px 'AvenirDemi', sans-serif;
+}
+
+.rbc-toolbar .pipe-navigate {
+  width: 100%;
+  text-align: center;
 }
 
 .rbc-toolbar button {

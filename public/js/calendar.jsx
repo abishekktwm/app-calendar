@@ -34,13 +34,13 @@ class CustomToolbar extends React.Component {
           { label }
         </span>
 
-        <span className='rbc-btn-group'>
+        <span className='rbc-btn-group pipe-navigate'>
           <a
             className="prev"
             href="#"
             onClick={this.navigate.bind(null, navigate.PREVIOUS)}
           >
-            {messages.previous}
+            <span className="pp-ico-bold-arrow-left" />
           </a>
           <a
             className="today"
@@ -55,7 +55,7 @@ class CustomToolbar extends React.Component {
             href="#"
             onClick={this.navigate.bind(null, navigate.NEXT)}
           >
-            {messages.next}
+            <span className="pp-ico-bold-arrow-right" />
           </a>
         </span>
 

@@ -12,7 +12,7 @@ import invariant from 'invariant';
   next: 'next',
   yesterday: 'yesterday',
   tomorrow: 'tomorrow',
-  today: 'today',
+  today: 'Today',
   agenda: 'agenda',
 
   showMore: total => `+${total} more`

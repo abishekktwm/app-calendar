@@ -30719,7 +30719,7 @@ var CustomToolbar = function (_React$Component) {
         ),
         _react2.default.createElement(
           'span',
-          { className: 'rbc-btn-group' },
+          { className: 'rbc-btn-group pipe-navigate' },
           _react2.default.createElement(
             'a',
             {
@@ -30727,7 +30727,7 @@ var CustomToolbar = function (_React$Component) {
               href: '#',
               onClick: this.navigate.bind(null, navigate.PREVIOUS)
             },
-            messages.previous
+            _react2.default.createElement('span', { className: 'pp-ico-bold-arrow-left' })
           ),
           _react2.default.createElement(
             'a',
@@ -30745,7 +30745,7 @@ var CustomToolbar = function (_React$Component) {
               href: '#',
               onClick: this.navigate.bind(null, navigate.NEXT)
             },
-            messages.next
+            _react2.default.createElement('span', { className: 'pp-ico-bold-arrow-right' })
           )
         ),
         _react2.default.createElement(
@@ -30895,7 +30895,7 @@ var defaultMessages = {
   next: 'next',
   yesterday: 'yesterday',
   tomorrow: 'tomorrow',
-  today: 'today',
+  today: 'Today',
   agenda: 'agenda',
 
   showMore: function showMore(total) {
