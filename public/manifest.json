@@ -1,0 +1,13 @@
+{
+  "name": "Calendar",
+  "short_description": "View your cards due date in a Calendar view",
+  "description": "View your cards due date in a Calendar view",
+  "icon": "./images/icon.svg",
+  "author": "Pipefy Inc",
+  "init_url": "./",
+  "screenshots": ["./images/screenshots/1.png"],
+  "features": [
+    "pipe-buttons",
+    "settings-button"
+  ]
+}
