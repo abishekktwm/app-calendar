@@ -30669,6 +30669,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 __webpack_require__(98);
 
+var pipefy = pipefyClient.init();
+
 var navigate = {
   PREVIOUS: 'PREV',
   NEXT: 'NEXT',
@@ -30679,7 +30681,7 @@ var navigate = {
 _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
 
 var openCard = function openCard(id) {
-  window.xprops.pipefyClient.openCard(id);
+  pipefy.openCard(id);
 };
 
 function EventAgenda(_ref) {
@@ -30721,7 +30723,6 @@ var CustomToolbar = function (_React$Component) {
       var _props = this.props,
           messages = _props.messages,
           label = _props.label;
-
 
       messages = (0, _messages2.default)(messages);
 
@@ -30814,14 +30815,14 @@ var Calendar = function (_React$Component2) {
   _createClass(Calendar, [{
     key: 'openCard',
     value: function openCard(id) {
-      window.xprops.pipefyClient.openCard(id);
+      pipefy.openCard(id);
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this4 = this;
 
-      window.xprops.pipefyClient.cards().then(function (cards) {
+      pipefy.cards().then(function (cards) {
         var events = Object.values(cards).map(function (card, index) {
           var start = new Date(card.due_date);
           var end = new Date(start.getTime() + 30 * 60000);
@@ -30862,9 +30863,7 @@ var Calendar = function (_React$Component2) {
   return Calendar;
 }(_react2.default.Component);
 
-window.xprops.pipefyClient.locale().then(function (locale) {
-  _reactDom2.default.render(_react2.default.createElement(Calendar, { locale: locale }), document.getElementById('calendar'));
-});
+_reactDom2.default.render(_react2.default.createElement(Calendar, { locale: pipefy.locale }), document.getElementById('calendar'));
 
 /***/ }),
 /* 315 */
