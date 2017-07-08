@@ -13,6 +13,8 @@ import cn from 'classnames'
 
 import message from './messages.jsx'
 
+const pipefy = pipefyClient.init();
+
 const navigate = {
   PREVIOUS:  'PREV',
   NEXT: 'NEXT',
@@ -22,9 +24,7 @@ const navigate = {
 
 BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 
-const openCard = (id) => {
-  window.xprops.pipefyClient.openCard(id)
-}
+const openCard = (id) => { pipefy.openCard(id) }
 
 function EventAgenda({ event }) {
   return (
@@ -37,7 +37,6 @@ function EventAgenda({ event }) {
 class CustomToolbar extends React.Component {
   render() {
     let { messages, label } = this.props;
-
     messages = message(messages)
 
     return (
@@ -117,11 +116,11 @@ class Calendar extends React.Component {
   }
 
   openCard(id) {
-    window.xprops.pipefyClient.openCard(id)
+    pipefy.openCard(id)
   }
 
   componentDidMount() {
-    window.xprops.pipefyClient.cards().then((cards) => {
+    pipefy.cards().then((cards) => {
       const events = Object.values(cards).map((card, index) => {
         const start = new Date(card.due_date)
         const end = new Date(start.getTime() + 30 * 60000)
@@ -155,7 +154,4 @@ class Calendar extends React.Component {
   }
 }
 
-window.xprops.pipefyClient.locale().then(locale => {
-  ReactDOM.render(<Calendar locale={locale}/>, document.getElementById('calendar'));
-});
-
+ReactDOM.render(<Calendar locale={pipefy.locale}/>, document.getElementById('calendar'));
