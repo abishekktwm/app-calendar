@@ -37,7 +37,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "css-loader": "^0.28.0",
+o   "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "style-loader": "^0.16.1"
   }
