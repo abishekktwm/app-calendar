@@ -1,7 +1,7 @@
 {
   "name": "Calendar",
-  "short_description": "View your cards due date in a Calendar view",
-  "description": "View your cards due date in a Calendar view",
+  "short_description": "View the due date of all your cards in a calendar.",
+  "description": "All of the cards that pertain to you will appear on the date they are due. Display cards in a month, week, day, or agenda outlook.",
   "icon": "./images/icon.png",
   "author": "Pipefy Inc",
   "init_url": "./",
