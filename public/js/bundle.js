@@ -30669,7 +30669,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 __webpack_require__(98);
 
-var pipefy = pipefyClient.init();
+var pipefy = PipefyApp.init();
 
 var navigate = {
   PREVIOUS: 'PREV',
@@ -30822,20 +30822,25 @@ var Calendar = function (_React$Component2) {
     value: function componentDidMount() {
       var _this4 = this;
 
-      pipefy.cards().then(function (cards) {
-        var events = Object.values(cards).map(function (card, index) {
-          var start = new Date(card.due_date);
-          var end = new Date(start.getTime() + 30 * 60000);
+      PipefyApp.render(function () {
+        pipefy.cards().then(function (cards) {
+          var cardsFiltered = cards.filter(function (card) {
+            return card.isVisible;
+          });
+          var events = cardsFiltered.map(function (card, index) {
+            var start = new Date(card.due_date);
+            var end = new Date(start.getTime() + 30 * 60000);
 
-          return {
-            'title': card.title,
-            'id': card.id,
-            'start': start,
-            'end': end
-          };
+            return {
+              'title': card.title,
+              'id': card.id,
+              'start': start,
+              'end': end
+            };
+          });
+
+          _this4.setState({ events: events });
         });
-
-        _this4.setState({ events: events });
       });
     }
   }, {

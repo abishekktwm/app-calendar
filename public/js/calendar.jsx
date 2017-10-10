@@ -1,6 +1,5 @@
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
-
 require('moment/locale/fr');
 
 import React from 'react'
@@ -13,7 +12,7 @@ import cn from 'classnames'
 
 import message from './messages.jsx'
 
-const pipefy = pipefyClient.init();
+const pipefy = PipefyApp.init();
 
 const navigate = {
   PREVIOUS:  'PREV',
@@ -120,22 +119,24 @@ class Calendar extends React.Component {
   }
 
   componentDidMount() {
-    pipefy.cards().then((cards) => {
-      const events = Object.values(cards).map((card, index) => {
-        const start = new Date(card.due_date)
-        const end = new Date(start.getTime() + 30 * 60000)
+    PipefyApp.render(() => {
+      pipefy.cards().then((cards) => {
+        const cardsFiltered = cards.filter((card) => card.isVisible);
+        const events = cardsFiltered.map((card, index) => {
+          const start = new Date(card.due_date)
+          const end = new Date(start.getTime() + 30 * 60000)
 
-        return {
-          'title': card.title,
-          'id': card.id,
-          'start': start,
-          'end':  end,
-        }
-      })
+          return {
+            'title': card.title,
+            'id': card.id,
+            'start': start,
+            'end':  end,
+          }
+        })
 
-      this.setState({events})
-    })
-
+        this.setState({events})
+      });
+    });
   }
 
   render() {
