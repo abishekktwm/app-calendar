@@ -3,8 +3,12 @@
 import { graphql } from 'react-apollo';
 
 import Calendar from '../components/calendar';
+import { endDateByView, startDateByView } from '../utils';
 
 import ALL_CARDS_QUERY from '../graphql/queries/all_cards';
+
+const defaultDate = new Date();
+const defaultView = 'month';
 
 const transformAllCardsToEvents = (loading, allCards) => {
   if (loading) return [];
@@ -26,6 +30,8 @@ const allCardsQueryOptions = {
   options: ({ pipefy }) => ({
     variables: {
       pipeId: pipefy.app.pipeId,
+      endDate: endDateByView(defaultDate, defaultView),
+      startDate: startDateByView(defaultDate, defaultView),
       pageSize: 100,
     },
   }),

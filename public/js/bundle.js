@@ -35679,11 +35679,16 @@ var _calendar = __webpack_require__(379);
 
 var _calendar2 = _interopRequireDefault(_calendar);
 
+var _utils = __webpack_require__(669);
+
 var _all_cards = __webpack_require__(384);
 
 var _all_cards2 = _interopRequireDefault(_all_cards);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var defaultDate = new Date();
+var defaultView = 'month';
 
 var transformAllCardsToEvents = function transformAllCardsToEvents(loading, allCards) {
   if (loading) return [];
@@ -35707,6 +35712,8 @@ var allCardsQueryOptions = {
     return {
       variables: {
         pipeId: pipefy.app.pipeId,
+        endDate: (0, _utils.endDateByView)(defaultDate, defaultView),
+        startDate: (0, _utils.startDateByView)(defaultDate, defaultView),
         pageSize: 100
       }
     };
@@ -38323,6 +38330,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
@@ -38345,60 +38354,105 @@ var _toolbar = __webpack_require__(381);
 
 var _toolbar2 = _interopRequireDefault(_toolbar);
 
+var _utils = __webpack_require__(669);
+
 __webpack_require__(406);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var handleRefetch = function handleRefetch(currentDate, currentView, refetch) {
-  var parsedDate = (0, _moment2.default)(currentDate);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var startDate = (0, _moment2.default)(currentDate).startOf(currentView);
-  var endDate = (0, _moment2.default)(currentDate).endOf(currentView);
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  console.log(currentDate);
-  console.log(currentView);
-  console.log(startDate);
-  console.log(endDate);
-};
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-exports.default = function (_ref) {
-  var _ref$data = _ref.data,
-      events = _ref$data.events,
-      loading = _ref$data.loading,
-      refetch = _ref$data.refetch,
-      pipefy = _ref.pipefy;
+var Calendar = function (_React$Component) {
+  _inherits(Calendar, _React$Component);
 
-  if (loading) return null;
+  function Calendar(props) {
+    _classCallCheck(this, Calendar);
 
-  _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
+    var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
 
-  debugger;
+    _this.state = {
+      currentDate: new Date(),
+      currentView: 'month'
+    };
+    return _this;
+  }
 
-  return _react2.default.createElement(_reactBigCalendar2.default, {
-    components: {
-      agenda: {
-        event: function event(props) {
-          return _react2.default.createElement(_event2.default, _extends({}, props, { pipefy: pipefy }));
-        }
-      },
-      toolbar: function toolbar(props) {
-        return _react2.default.createElement(_toolbar2.default, props);
+  _createClass(Calendar, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      _reactBigCalendar2.default.setLocalizer(_reactBigCalendar2.default.momentLocalizer(_moment2.default));
+    }
+  }, {
+    key: 'handleRefetch',
+    value: function handleRefetch(currentView, currentDate) {
+      var refetch = this.props.data.refetch;
+      var storedDate = this.state.currentDate;
+
+
+      this.setState({ currentView: currentView });
+
+      if (currentDate) {
+        storedDate = new Date(currentDate);
+        this.setState({ currentDate: storedDate });
       }
-    },
-    culture: pipefy.locale,
-    events: events,
-    onNavigate: function onNavigate(currentDate, currentView) {
-      return handleRefetch(currentDate, currentView, refetch);
-    },
-    onSelectEvent: function onSelectEvent(event) {
-      return pipefy.openCard(event.id);
-    },
-    onView: function onView(currentView) {
-      return handleRefetch(null, currentView, refetch);
-    },
-    selectable: true
-  });
-};
+
+      refetch({
+        startDate: (0, _utils.startDateByView)(storedDate, currentView),
+        endDate: (0, _utils.endDateByView)(storedDate, currentView)
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          _props$data = _props.data,
+          events = _props$data.events,
+          loading = _props$data.loading,
+          pipefy = _props.pipefy;
+      var _state = this.state,
+          defaultDate = _state.currentDate,
+          defaultView = _state.currentView;
+
+
+      return _react2.default.createElement(_reactBigCalendar2.default, {
+        components: {
+          agenda: {
+            event: function event(props) {
+              return _react2.default.createElement(_event2.default, _extends({}, props, { pipefy: pipefy }));
+            }
+          },
+          toolbar: function toolbar(props) {
+            return _react2.default.createElement(_toolbar2.default, _extends({}, props, { loading: loading }));
+          }
+        },
+        culture: pipefy.locale,
+        defaultDate: defaultDate,
+        defaultView: defaultView,
+        events: events,
+        onNavigate: function onNavigate(currentDate, currentView) {
+          return _this2.handleRefetch(currentView, currentDate);
+        },
+        onSelectEvent: function onSelectEvent(event) {
+          return pipefy.openCard(event.id);
+        },
+        onView: function onView(currentView) {
+          return _this2.handleRefetch(currentView);
+        },
+        selectable: true
+      });
+    }
+  }]);
+
+  return Calendar;
+}(_react2.default.Component);
+
+exports.default = Calendar;
 
 /***/ }),
 /* 380 */
@@ -38461,6 +38515,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (_ref) {
   var label = _ref.label,
+      loading = _ref.loading,
       onNavigate = _ref.onNavigate,
       onViewChange = _ref.onViewChange,
       view = _ref.view,
@@ -38473,8 +38528,18 @@ exports.default = function (_ref) {
       { className: 'rbc-toolbar-label' },
       label
     ),
-    _react2.default.createElement(_navigations2.default, { handleNavigate: onNavigate }),
-    _react2.default.createElement(_views2.default, { availableViews: views, currentView: view, onViewChange: onViewChange })
+    loading && _react2.default.createElement(
+      'span',
+      { className: 'rbc-btn-group pipe-navigate' },
+      _react2.default.createElement('span', { className: 'pp-ico-loading pp-color-info' })
+    ),
+    !loading && _react2.default.createElement(_navigations2.default, { handleNavigate: onNavigate, loading: loading }),
+    !loading && _react2.default.createElement(_views2.default, {
+      availableViews: views,
+      currentView: view,
+      loading: loading,
+      onViewChange: onViewChange
+    })
   );
 };
 
@@ -38554,7 +38619,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _templateObject = _taggedTemplateLiteral(['\n  query allCardsQuery($pipeId: ID!, $pageSize: Int!, $endCursor: String) {\n    allCards(pipeId: $pipeId, first: $pageSize, after: $endCursor) {\n      edges {\n        node {\n          ...cardFragment\n        }\n      }\n    }\n  }\n\n  ', '\n'], ['\n  query allCardsQuery($pipeId: ID!, $pageSize: Int!, $endCursor: String) {\n    allCards(pipeId: $pipeId, first: $pageSize, after: $endCursor) {\n      edges {\n        node {\n          ...cardFragment\n        }\n      }\n    }\n  }\n\n  ', '\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  query allCardsQuery(\n    $pipeId: ID!\n    $endDate: String!\n    $startDate: String!\n    $endCursor: String\n    $pageSize: Int!\n  ) {\n    allCards(\n      pipeId: $pipeId\n      filter: {\n        field: "due_date"\n        operator: gte\n        value: $startDate\n        AND: { field: "due_date", operator: lte, value: $endDate }\n      }\n      after: $endCursor\n      first: $pageSize\n    ) {\n      edges {\n        node {\n          ...cardFragment\n        }\n      }\n    }\n  }\n\n  ', '\n'], ['\n  query allCardsQuery(\n    $pipeId: ID!\n    $endDate: String!\n    $startDate: String!\n    $endCursor: String\n    $pageSize: Int!\n  ) {\n    allCards(\n      pipeId: $pipeId\n      filter: {\n        field: "due_date"\n        operator: gte\n        value: $startDate\n        AND: { field: "due_date", operator: lte, value: $endDate }\n      }\n      after: $endCursor\n      first: $pageSize\n    ) {\n      edges {\n        node {\n          ...cardFragment\n        }\n      }\n    }\n  }\n\n  ', '\n']);
 
 var _graphqlTag = __webpack_require__(90);
 
@@ -64889,6 +64954,40 @@ exports.default = function (_ref) {
       );
     })
   );
+};
+
+/***/ }),
+/* 669 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.startDateByView = exports.endDateByView = undefined;
+
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var unit = function unit(view) {
+  return view === 'agenda' ? 'day' : view;
+};
+
+var endDateByView = exports.endDateByView = function endDateByView(date, view) {
+  var processedDate = (0, _moment2.default)(date);
+
+  if (view === 'agenda') processedDate.add(30, 'days');
+
+  return processedDate.endOf(unit(view)).toISOString();
+};
+
+var startDateByView = exports.startDateByView = function startDateByView(date, view) {
+  return (0, _moment2.default)(date).startOf(unit(view)).toISOString();
 };
 
 /***/ })
