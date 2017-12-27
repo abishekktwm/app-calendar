@@ -9,7 +9,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Event from './event';
 import Toolbar from './toolbar';
 import { endDateByView, startDateByView } from '../utils';
-import type { Card, Pipefy } from '../types';
+import type { Card, Pipefy } from '../models';
 
 import '../../public/css/overwrite.css';
 

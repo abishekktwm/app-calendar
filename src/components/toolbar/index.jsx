@@ -22,12 +22,11 @@ export default ({ label, loading, onNavigate, onViewChange, view, views }: Props
         <span className="pp-ico-loading pp-color-info" />
       </span>
     )}
-    {!loading && <Navigations handleNavigate={onNavigate} loading={loading} />}
+    {!loading && <Navigations handleNavigate={onNavigate} />}
     {!loading && (
       <Views
         availableViews={views}
         currentView={view}
-        loading={loading}
         onViewChange={onViewChange}
       />
     )}

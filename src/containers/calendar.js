@@ -10,10 +10,8 @@ import ALL_CARDS_QUERY from '../graphql/queries/all_cards';
 const defaultDate = new Date();
 const defaultView = 'month';
 
-const transformAllCardsToEvents = (loading, allCards) => {
-  if (loading) return [];
-
-  return allCards.edges.map(edge => {
+const transformAllCardsToEvents = edges =>
+  edges.map(edge => {
     const start = new Date(edge.node.due_date);
     const end = new Date(start.getTime() + 30 * 60000);
 
@@ -24,7 +22,6 @@ const transformAllCardsToEvents = (loading, allCards) => {
       title: edge.node.title,
     };
   });
-};
 
 const allCardsQueryOptions = {
   options: ({ pipefy }) => ({
@@ -38,7 +35,7 @@ const allCardsQueryOptions = {
   props: ({ data, ownProps }) => ({
     data: {
       ...data,
-      events: transformAllCardsToEvents(data.loading, data.allCards),
+      events: data.loading ? [] : transformAllCardsToEvents(data.allCards.edges),
     },
     ownProps,
   }),

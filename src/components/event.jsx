@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import type { Card, Pipefy } from '../types';
+import type { Card, Pipefy } from '../models';
 
 type Props = {
   event: Card,
