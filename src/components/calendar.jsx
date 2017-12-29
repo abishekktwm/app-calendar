@@ -27,7 +27,7 @@ type State = {
   currentView: string,
 };
 
-export default class Calendar extends React.Component<Props, State> {
+class Calendar extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -81,3 +81,5 @@ export default class Calendar extends React.Component<Props, State> {
     );
   }
 }
+
+export default Calendar;

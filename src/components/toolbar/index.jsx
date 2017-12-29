@@ -14,7 +14,7 @@ type Props = {
   views: Array<string>,
 };
 
-export default ({ label, loading, onNavigate, onViewChange, view, views }: Props) => (
+const Toolbar = ({ label, loading, onNavigate, onViewChange, view, views }: Props) => (
   <div className="rbc-toolbar">
     <span className="rbc-toolbar-label">{label}</span>
     {loading && (
@@ -24,11 +24,9 @@ export default ({ label, loading, onNavigate, onViewChange, view, views }: Props
     )}
     {!loading && <Navigations handleNavigate={onNavigate} />}
     {!loading && (
-      <Views
-        availableViews={views}
-        currentView={view}
-        onViewChange={onViewChange}
-      />
+      <Views availableViews={views} currentView={view} handleViewChange={onViewChange} />
     )}
   </div>
 );
+
+export default Toolbar;

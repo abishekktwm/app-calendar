@@ -4,24 +4,26 @@ import React from 'react';
 
 type Props = { handleNavigate: (action: string) => void };
 
-const navigations = [
-  { id: 'PREV', label: null, icon: 'bold-arrow-left' },
-  { id: 'TODAY', label: 'Today', icon: null },
-  { id: 'NEXT', label: null, icon: 'bold-arrow-right' },
+const items = [
+  { id: 'prev', label: null, icon: 'bold-arrow-left' },
+  { id: 'today', label: 'Today', icon: null },
+  { id: 'next', label: null, icon: 'bold-arrow-right' },
 ];
 
-export default ({ handleNavigate }: Props) => (
+const Navigations = ({ handleNavigate }: Props) => (
   <span className="rbc-btn-group pipe-navigate">
-    {navigations.map(navigation => (
+    {items.map(item => (
       <a
-        className={navigation.id}
-        href={`#navigate_${navigation.id}`}
-        key={navigation.id}
-        onClick={() => handleNavigate(navigation.id.toUpperCase())}
+        className={item.id}
+        href={`#navigate_${item.id}`}
+        key={item.id}
+        onClick={() => handleNavigate(item.id.toUpperCase())}
       >
-        {navigation.icon && <span className={`pp-ico-${navigation.icon}`} />}
-        {navigation.label && navigation.label}
+        {item.icon && <span className={`pp-ico-${item.icon}`} />}
+        {item.label && item.label}
       </a>
     ))}
   </span>
 );
+
+export default Navigations;

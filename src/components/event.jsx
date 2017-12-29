@@ -14,8 +14,10 @@ const openCard = (e, id, pipefy) => {
   pipefy.openCard(id);
 };
 
-export default ({ event, pipefy }: Props) => (
+const Event = ({ event, pipefy }: Props) => (
   <a href="#open_card" onClick={e => openCard(e, event.id, pipefy)}>
     {event.title}
   </a>
 );
+
+export default Event;

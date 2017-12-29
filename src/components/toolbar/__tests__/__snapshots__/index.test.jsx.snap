@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar render with a falsy loading props 1`] = `
+<div
+  className="rbc-toolbar"
+>
+  <span
+    className="rbc-toolbar-label"
+  >
+    Testing label
+  </span>
+  <span
+    className="rbc-btn-group pipe-navigate"
+  >
+    <a
+      className="prev"
+      href="#navigate_prev"
+      onClick={[Function]}
+    >
+      <span
+        className="pp-ico-bold-arrow-left"
+      />
+    </a>
+    <a
+      className="today"
+      href="#navigate_today"
+      onClick={[Function]}
+    >
+      Today
+    </a>
+    <a
+      className="next"
+      href="#navigate_next"
+      onClick={[Function]}
+    >
+      <span
+        className="pp-ico-bold-arrow-right"
+      />
+    </a>
+  </span>
+  <span
+    className="rbc-btn-group"
+  >
+    <button
+      className="rbc-active"
+      onClick={[Function]}
+    >
+      month
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      week
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      day
+    </button>
+    <button
+      className=""
+      onClick={[Function]}
+    >
+      agenda
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Toolbar render with a truthy loading props 1`] = `
+<div
+  className="rbc-toolbar"
+>
+  <span
+    className="rbc-toolbar-label"
+  >
+    Testing label
+  </span>
+  <span
+    className="rbc-btn-group pipe-navigate"
+  >
+    <span
+      className="pp-ico-loading pp-color-info"
+    />
+  </span>
+</div>
+`;

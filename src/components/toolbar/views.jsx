@@ -6,19 +6,21 @@ import classnames from 'classnames';
 type Props = {
   availableViews: Array<string>,
   currentView: string,
-  onViewChange: (action: string) => void,
+  handleViewChange: (action: string) => void,
 };
 
-export default ({ availableViews, currentView, onViewChange }: Props) => (
+const Views = ({ availableViews, currentView, handleViewChange }: Props) => (
   <span className="rbc-btn-group">
     {availableViews.map(view => (
       <button
         className={classnames({ 'rbc-active': view === currentView })}
         key={view}
-        onClick={() => onViewChange(view)}
+        onClick={() => handleViewChange(view)}
       >
         {view}
       </button>
     ))}
   </span>
 );
+
+export default Views;
