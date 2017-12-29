@@ -11,7 +11,7 @@ import Toolbar from './toolbar';
 import { endDateByView, startDateByView } from '../utils';
 import type { Card, Pipefy } from '../models';
 
-import '../../public/css/overwrite.css';
+import '../assets/stylesheets/calendar.css';
 
 type Props = {
   data: {
