@@ -2,8 +2,9 @@
 
 export type Card = {
   id: string,
-  title: string,
   due_date: string,
+  suid: string,
+  title: string,
 };
 
 export type Pipefy = {

@@ -27,7 +27,7 @@ export const transformEdgesToEvents = (edges: Array<{ node: Card }>) =>
 
     return {
       end,
-      id: edge.node.id,
+      id: edge.node.suid,
       start,
       title: edge.node.title,
     };

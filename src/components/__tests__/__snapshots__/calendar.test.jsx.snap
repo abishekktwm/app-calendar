@@ -14,7 +14,7 @@ Object {
   "events": Array [
     Object {
       "end": 2017-12-15T18:30:00.000Z,
-      "id": "1",
+      "id": "aBc_1234",
       "start": 2017-12-15T18:00:00.000Z,
       "title": "Testing card",
     },
