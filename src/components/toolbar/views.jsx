@@ -16,6 +16,7 @@ const Views = ({ availableViews, currentView, handleViewChange }: Props) => (
         className={classnames({ 'rbc-active': view === currentView })}
         key={view}
         onClick={() => handleViewChange(view)}
+        tabIndex="0"
       >
         {view}
       </button>
