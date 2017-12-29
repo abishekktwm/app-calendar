@@ -19,12 +19,11 @@ const allCardsQueryOptions = {
       pageSize: 100,
     },
   }),
-  props: ({ data, ownProps }) => ({
+  props: ({ data }) => ({
     data: {
       ...data,
-      events: data.loading ? [] : transformEdgesToEvents(data.allCards.edges),
+      events: data.loading || !data.allCards ? [] : transformEdgesToEvents(data.allCards.edges),
     },
-    ownProps,
   }),
 };
 

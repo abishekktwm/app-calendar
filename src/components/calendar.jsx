@@ -15,6 +15,7 @@ import '../assets/stylesheets/calendar.css';
 
 type Props = {
   data: {
+    error: { message: string },
     events: Array<Card>,
     loading: boolean,
     refetch: (variables: { endDate: string, startDate: string }) => void,
@@ -58,8 +59,12 @@ class Calendar extends React.Component<Props, State> {
   }
 
   render() {
-    const { data: { events, loading }, pipefy } = this.props;
+    const { data: { error, events, loading }, pipefy } = this.props;
     const { currentDate: defaultDate, currentView: defaultView } = this.state;
+
+    const { showNotification } = pipefy;
+
+    if (!loading && error) showNotification(error.message, 'error');
 
     return (
       <BigCalendar

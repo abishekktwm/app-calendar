@@ -10,4 +10,5 @@ export type Card = {
 export type Pipefy = {
   locale: string,
   openCard: (id: string) => void,
+  showNotification: (message: string, type: string) => void,
 };
