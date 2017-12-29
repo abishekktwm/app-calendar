@@ -16,6 +16,8 @@ exports[`Toolbar render with a falsy loading props 1`] = `
       className="prev"
       href="#navigate_prev"
       onClick={[Function]}
+      tabIndex="0"
+      title="Previous"
     >
       <span
         className="pp-ico-bold-arrow-left"
@@ -25,6 +27,8 @@ exports[`Toolbar render with a falsy loading props 1`] = `
       className="today"
       href="#navigate_today"
       onClick={[Function]}
+      tabIndex="0"
+      title="Today"
     >
       Today
     </a>
@@ -32,6 +36,8 @@ exports[`Toolbar render with a falsy loading props 1`] = `
       className="next"
       href="#navigate_next"
       onClick={[Function]}
+      tabIndex="0"
+      title="Next"
     >
       <span
         className="pp-ico-bold-arrow-right"
@@ -44,24 +50,28 @@ exports[`Toolbar render with a falsy loading props 1`] = `
     <button
       className="rbc-active"
       onClick={[Function]}
+      tabIndex="0"
     >
       month
     </button>
     <button
       className=""
       onClick={[Function]}
+      tabIndex="0"
     >
       week
     </button>
     <button
       className=""
       onClick={[Function]}
+      tabIndex="0"
     >
       day
     </button>
     <button
       className=""
       onClick={[Function]}
+      tabIndex="0"
     >
       agenda
     </button>
