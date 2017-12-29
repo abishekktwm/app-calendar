@@ -12,15 +12,15 @@ const items = [
 
 const Navigations = ({ handleNavigate }: Props) => (
   <span className="rbc-btn-group pipe-navigate">
-    {items.map(item => (
+    {items.map(({ icon, id, label }) => (
       <a
-        className={item.id}
-        href={`#navigate_${item.id}`}
-        key={item.id}
-        onClick={() => handleNavigate(item.id.toUpperCase())}
+        className={id}
+        href={`#navigate_${id}`}
+        key={id}
+        onClick={() => handleNavigate(id.toUpperCase())}
       >
-        {item.icon && <span className={`pp-ico-${item.icon}`} />}
-        {item.label && item.label}
+        {icon && <span className={`pp-ico-${icon}`} />}
+        {label && label}
       </a>
     ))}
   </span>
