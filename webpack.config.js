@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.jsx',
@@ -11,9 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+        use: ExtractTextPlugin.extract({ use: 'css-loader' }),
       },
       {
         test: /.jsx?$/,
