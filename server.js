@@ -9,7 +9,7 @@ app.use(compression());
 app.use(cors({ origin: '*' }));
 app.use(express.static('public'));
 
-const listener = app.listen(63538, () => {
+const listener = app.listen(process.env.PORT, () => {
   /* eslint-disable no-console */
   console.info(`Node Version: ${process.version}`);
   console.log(`Pipefy app Server listening on port ${listener.address().port}`);
