@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event render 1`] = `
+<a
+  href="#open_card"
+  onClick={[Function]}
+>
+  Testing card
+</a>
+`;

@@ -1,24 +1,17 @@
-// server.js
-// where your node app starts
-//
-require ('newrelic');
+const compression = require('compression');
+const cors = require('cors');
+const express = require('express');
 
-var compression = require('compression');
-var cors = require('cors');
-var express = require('express');
-var app = express();
+require('newrelic');
 
-// compress our client side content before sending it over the wire
+const app = express();
 app.use(compression());
-
-// your manifest must have appropriate CORS headers, you could also use '*'
 app.use(cors({ origin: '*' }));
-
-// http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+const listener = app.listen(63538, () => {
+  /* eslint-disable no-console */
   console.info(`Node Version: ${process.version}`);
-  console.log('Pipefy app Server listening on port ' + listener.address().port);
+  console.log(`Pipefy app Server listening on port ${listener.address().port}`);
+  /* eslint-enable no-console */
 });

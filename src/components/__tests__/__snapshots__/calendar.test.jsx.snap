@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar render with big calendar 1`] = `
+Object {
+  "components": Object {
+    "agenda": Object {
+      "event": [Function],
+    },
+    "toolbar": [Function],
+  },
+  "culture": "en",
+  "defaultDate": 2017-12-01T00:00:00.000Z,
+  "defaultView": "month",
+  "events": Array [
+    Object {
+      "end": 2017-12-15T18:30:00.000Z,
+      "id": "aBc_1234",
+      "start": 2017-12-15T18:00:00.000Z,
+      "title": "Testing card",
+    },
+  ],
+  "onNavigate": [Function],
+  "onSelectEvent": [Function],
+  "onView": [Function],
+  "selectable": true,
+}
+`;

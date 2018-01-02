@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigations render 1`] = `
+<span
+  className="rbc-btn-group pipe-navigate"
+>
+  <a
+    className="prev"
+    href="#navigate_prev"
+    onClick={[Function]}
+    tabIndex="0"
+    title="Previous"
+  >
+    <span
+      className="pp-ico-bold-arrow-left"
+    />
+  </a>
+  <a
+    className="today"
+    href="#navigate_today"
+    onClick={[Function]}
+    tabIndex="0"
+    title="Today"
+  >
+    Today
+  </a>
+  <a
+    className="next"
+    href="#navigate_next"
+    onClick={[Function]}
+    tabIndex="0"
+    title="Next"
+  >
+    <span
+      className="pp-ico-bold-arrow-right"
+    />
+  </a>
+</span>
+`;

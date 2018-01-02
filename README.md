@@ -1,2 +1,1 @@
-# app-calendar
-Pipefy Calendar App
+# Pipefy Calendar App

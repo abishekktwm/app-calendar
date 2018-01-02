@@ -43,6 +43,10 @@
   overflow: hidden;
 }
 
+.rbc-off-range-bg {
+  background: #e6ecf5;
+}
+
 .rbc-off-range a{
   color: rgba(1, 61, 119, .4) !important;
 }

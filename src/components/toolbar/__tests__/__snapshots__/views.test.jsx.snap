@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Views render 1`] = `
+<span
+  className="rbc-btn-group"
+>
+  <button
+    className="rbc-active"
+    onClick={[Function]}
+    tabIndex="0"
+  >
+    month
+  </button>
+  <button
+    className=""
+    onClick={[Function]}
+    tabIndex="0"
+  >
+    week
+  </button>
+  <button
+    className=""
+    onClick={[Function]}
+    tabIndex="0"
+  >
+    day
+  </button>
+  <button
+    className=""
+    onClick={[Function]}
+    tabIndex="0"
+  >
+    agenda
+  </button>
+</span>
+`;

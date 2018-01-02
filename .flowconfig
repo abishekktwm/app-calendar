@@ -1,0 +1,15 @@
+[ignore]
+; Ignore libraries with broken flow
+.*/node_modules/config-chain/test/broken.json
+.*/node_modules/npmconf/test/fixtures/package.json
+.*/node_modules/react-apollo/react-apollo.umd.js.flow
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
