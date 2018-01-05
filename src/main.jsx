@@ -1,9 +1,9 @@
 /* global document, PipefyApp */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 
+import './polyfills';
 import Calendar from './containers/calendar';
 import apolloClient from './utils/apollo_client';
 
