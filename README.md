@@ -42,10 +42,10 @@ To Calendar App access the GraphQL API properly, you need to do some settings on
 * Run the following commands
 
 ```ruby
->> app = PlatformApp.find(1)
->> app.url = 'http://localhost:3001/manifest.json'
->> app.oauth_client_id = 'YOUR_APPLICATION_ID'
->> app.save!
+app = PlatformApp.find(1)
+app.url = 'http://localhost:3001/manifest.json'
+app.oauth_client_id = 'YOUR_APPLICATION_ID'
+app.save!
 ```
 
 ### Tests
