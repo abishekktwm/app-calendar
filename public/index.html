@@ -7,12 +7,14 @@
     <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
     <script>
       PipefyApp.initCall({
-        'pipe-view': () => ({
-          icon: 'pp-ico-calendar',
-          text: 'Calendar',
-          url: './calendar.html',
-          hide_create_button: false,
-        }),
+        'pipe-view': function() {
+          return ({
+            icon: 'pp-ico-calendar',
+            text: 'Calendar',
+            url: './calendar.html',
+            hide_create_button: false,
+          })
+        },
       });
     </script>
   </body>
