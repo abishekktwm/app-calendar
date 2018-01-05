@@ -19,7 +19,9 @@ Then you're up to run the calendar app, to do this you'll need to start the serv
 $ yarn start
 ```
 
-And compile the application:
+You can define which port will be listen with an environment variable, eg: `PORT=3001`.
+
+After start the server you'll need to compile the application:
 
 ```bash
 $ yarn compile
@@ -28,6 +30,23 @@ $ yarn compile
 If you need to keep Webpack watching your changes add `-w`, eg: `yarn compile -w`.
 
 > The Calendar App access the Pipefy's GraphQL API localy (in development environment), so you'll need to run the Pipefy App too (eg. `cd path/to/pipefy/ && rails s`).
+
+#### Further Setting on Pipefy
+
+To Calendar App access the GraphQL API properly, you need to do some settings on Pipefy too.
+
+* Start the Pipefy App localy
+* Create (or rename) a organization with the name __Pipefy Team__
+* Access [OAuth2 Provider](http://localhost:3000/oauth/applications/) and create a new application
+* Start the Pipefy App's console, eg: `cd path/to/pipefy/ && rails c`
+* Run the following commands
+
+```ruby
+>> app = PlatformApp.find(1)
+>> app.url = 'http://localhost:3001/manifest.json'
+>> app.oauth_client_id = 'YOUR_APPLICATION_ID'
+>> app.save!
+```
 
 ### Tests
 
