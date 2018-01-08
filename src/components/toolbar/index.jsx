@@ -18,7 +18,7 @@ const Toolbar = ({ label, loading, onNavigate, onViewChange, view, views }: Prop
   <div className="rbc-toolbar">
     <span className="rbc-toolbar-label">{label}</span>
     {loading && (
-      <span className="rbc-btn-group pipe-navigate">
+      <span className="rbc-btn-group pipe-navigate pp-position-absolute">
         <span className="pp-ico-loading pp-color-info" />
       </span>
     )}
