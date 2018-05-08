@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
+const DotenvPlugin = require('webpack-dotenv-plugin');
 
 module.exports = {
   entry: './src/main.jsx',
@@ -17,10 +18,7 @@ module.exports = {
         test: /.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
+          loader: 'babel-loader'
         },
       },
     ],
@@ -28,6 +26,9 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('public/css/styles.css'),
     new webpack.EnvironmentPlugin({ NODE_ENV: 'development' }),
+    new DotenvPlugin({
+      path: './.env'
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],

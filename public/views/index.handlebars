@@ -4,14 +4,14 @@
     <meta charset="utf-8">
   </head>
   <body>
-    <script src="https://d1ukdhoxof1oxs.cloudfront.net/pipefy-client.js"></script>
+    <script src={{pipefyClientUrl}}></script>
     <script>
       PipefyApp.initCall({
         'pipe-view': function() {
           return ({
             icon: 'pp-ico-calendar',
             text: 'Calendar',
-            url: './calendar.html',
+            url: './calendar',
             hide_create_button: false,
           })
         },
