@@ -14,12 +14,12 @@ export default (token: string, path: string) =>
       new RetryLink().split(
         operation => operation.getContext().public,
         createHttpLink({
-          credentials: 'include',
+          credentials: 'same-origin',
           headers: { Authorization: `Bearer ${token}` },
           uri: `${baseURI}/queries`,
         }),
         createHttpLink({
-          credentials: 'include',
+          credentials: 'same-origin',
           headers: { Authorization: `Bearer ${token}` },
           uri: `${baseURI}/internal_api`,
         })
