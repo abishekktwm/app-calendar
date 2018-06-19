@@ -10,14 +10,16 @@ export default gql`
     $filter: OrganizationCardsFilter,
     $pipeIds: [Int]!,
     $sortBy: ReportSortDirectionInput!,
-    $pagination: ReportPaginationInput!
+    $pagination: ReportPaginationInput!,
+    $partialPipeAccess: Boolean
   ) {
     cardSearch(
       organizationId: $organizationId,
       filter: $filter,
       pipeIds: $pipeIds,
       sortBy: $sortBy,
-      pagination: $pagination
+      pagination: $pagination,
+      partialPipeAccess: $partialPipeAccess
     ) {
       cards {
         ...cardFragment

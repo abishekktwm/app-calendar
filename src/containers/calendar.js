@@ -24,6 +24,7 @@ const cardSearchQueryOptions = {
       pipeIds: [pipeId],
       sortBy: { field: 'due_date', direction: 'asc' },
       pagination: { perPage: 100, page: 1 },
+      partialPipeAccess: true
     },
   }),
 };
